@@ -58,52 +58,58 @@ let hotels = [{
 
 
 // 4. Print the name of each hotel on a separate line
-/*console.log();
+console.log("-------------\n");
 console.log("4. Hotel Names");
-console.log("\n");
-for(let i=0; i < hotels.length; i++){
-	console.log("   " + hotels[i].name);
-}
-console.log("\n");*/
 
 for (let i = 0; i < hotels.length; i++) {
-	console.log('4. ' + hotels[i].name);
+	console.log(hotels[i].name);
 }
 
 // 5. Use square bracket syntax to print the total number of rooms each hotel has
-
+console.log("-------------\n");
+console.log("5. Total Rooms");
 for (let i = 0; i < hotels.length; i++) {
-	console.log('5. ' + hotels[i].totalRms);
+	console.log(hotels[i].totalRms);
 }
 
 
 // 6. Since the hotel has yet to accept bookings, confirm none of the rooms are booked by printing the
 // number of rooms booked
+console.log("-------------\n");
+console.log("6. Rooms Booked");
+
 for (let i = 0; i < hotels.length; i++) {
-	console.log('6. ' + hotels[i].bookedRms);
+	console.log(hotels[i].bookedRms);
 }
 
 
 // 7. Print the names of hotels that have gyms
-
+console.log("-------------\n");
+console.log("7. Hotels with Gyms");
 for (let i = 0; i < hotels.length; i++) {
 	if (hotels[i].gym === 'yes') {
-		console.log('7. ' + hotels[i].name + ' has a gym');
+		console.log(hotels[i].name + ' has a gym');
 	}
 }
 
 
 // 8. Calculate and print the number of rooms available per hotel
+console.log("-------------\n");
+console.log("8. Rooms Available");
+
 let availableRooms = 0;
 for (let i = 0; i < hotels.length; i++) {
 	availableRooms = hotels[i].totalRms - hotels[i].bookedRms;
-	console.log('8. There are ' + availableRooms + ' rooms available at ' + hotels[i].name);
+	console.log('There are ' + availableRooms + ' rooms available at ' + hotels[i].name);
 }
 
 
 // 9. The Marketing Team believes the new site has 500 rooms, but the Construction Team says less than 300.
 // To resolve this squabble, print the total number of rooms by adding this across all 3 hotels.
-let roomArray;
+
+console.log("-------------\n");
+console.log("9. Total Rooms Across All Hotels");let roomArray;
+
 let sumOfAllRooms = 0;
 for (let i = 0; i < hotels.length; i++) {
 	roomArray = hotels[i].totalRms;
@@ -118,10 +124,11 @@ console.log('9. The total number of rooms is ' + sumOfAllRooms);
 // 1. In the previous file, you calculated room availability.  Create a function to do this and add
 // it as a method to each object above.  Run the new method to print the results.
 
-//console.log(hotels[0].numOfRoomsAvailable());
+console.log("-------------\n");
+console.log("1. Object Method");
 
 for (i = 0; i < hotels.length; i++) {
-	console.log('1.A There are ' + hotels[i].numOfRoomsAvailable() + ' at ' + hotels[i].name);
+	console.log('There are ' + hotels[i].numOfRoomsAvailable() + ' at ' + hotels[i].name);
 }
 
 
@@ -133,12 +140,15 @@ for (i = 0; i < hotels.length; i++) {
 // -2Quay Hotel has single, double, and triple
 // Now print the number of room types per hotel
 
-
+console.log("-------------\n");
+console.log("2. Number of Room Types");
 for( i=0; i<hotels.length; i++){
-	console.log('2.A In ' +  hotels[i].name + ' there are ' +  hotels[i].roomTypes.length + ' types of rooms');
+	console.log('At ' +  hotels[i].name + ' there are ' +  hotels[i].roomTypes.length + ' types of rooms');
 }
 
 // 3. Print the names of hotels that have suites
+console.log("-------------\n");
+console.log("3. Hotels with Suite Room Types");
 for (let i = 0; i < hotels.length; i++) {
 	if(hotels[i].roomTypes === 'suites'){
 		console.log(hotels[i].name);
@@ -151,7 +161,10 @@ for (let i = 0; i < hotels.length; i++) {
 // if Parker Place has more total rooms than the other two hotels combined, print "TRUE"
 // if the numbers are equal, print "EQUAL"
 //if hotel 3 has less total rooms than the other two hotels combined, print "FALSE"
-
+console.log("-------------\n");
+console.log(
+  "4. Does Parker Place have more total rooms than Hotel Paradise and Quay Hotel combined?"
+);
 if(hotels[2].totalRms > hotels[0].totalRms + hotels[1].totalRms){
 	console.log('TRUE');
 } else if (hotels[2].totalRms === hotels[0].totalRms + hotels[1].totalRms) {
@@ -162,9 +175,11 @@ if(hotels[2].totalRms > hotels[0].totalRms + hotels[1].totalRms){
 
 
 // 5. Use a conditional statement to print the names of the hotels that have pools and allow pets
+console.log("-------------\n");
+console.log("5. Hotels with Pools and Allow Pets");
 for (let i = 0; i < hotels.length; i++) {
 	if (hotels[i].pool === 'yes' && hotels[i].pets === 'yes'){
-		console.log('5.A ' + hotels[i].name + ' allows pets and has a pool.');
+		console.log(hotels[i].name + ' allows pets and has a pool.');
 	}
 }
 
@@ -172,16 +187,19 @@ for (let i = 0; i < hotels.length; i++) {
 // 6. Vacations-R-Us' Marketing Team believes each hotel will have 15% of its rooms booked for opening day.
 // For each hotel, calculate what that number will be and print it out along with the name of the hotel.
 // And remember, Marketing can't work with fraction of rooms, so round any value > 0.49 to 1
+console.log("-------------\n");
+console.log("6. Marketing Team 15% Booking Estimates");
 let toBeBooked = [];
 for (let i = 0; i < hotels.length; i++) {
 	toBeBooked[i] = Math.round(15 * hotels[i].totalRms/100);
-	console.log('6A. ' + hotels[i].name + ' will have ' + toBeBooked[i] + ' rooms booked by opening day')
+	console.log(hotels[i].name + ' will have ' + toBeBooked[i] + ' rooms booked by opening day')
 }
 
 
 // 7. Now the Construction Team wants to confirm every hotel has a triple and king room type.
 // Print the names of the hotels that do not fit this criteria
-
+console.log("-------------\n");
+console.log("7. Hotels Missing Triple and/or King Room Types");
 for (let i = 0; i < hotels.length; i++){
 	if (hotels[i].roomTypes.indexOf('king') === null){
 		console.log(hotels[i].name);
