@@ -150,7 +150,7 @@ for( i=0; i<hotels.length; i++){
 console.log("-------------\n");
 console.log("3. Hotels with Suite Room Types");
 for (let i = 0; i < hotels.length; i++) {
-	if(hotels[i].roomTypes === 'suites'){
+	if(hotels[i].roomTypes.indexOf("suite") >= 0){
 		console.log(hotels[i].name);
 	}
 };
@@ -201,10 +201,26 @@ for (let i = 0; i < hotels.length; i++) {
 console.log("-------------\n");
 console.log("7. Hotels Missing Triple and/or King Room Types");
 for (let i = 0; i < hotels.length; i++){
-	if (hotels[i].roomTypes.indexOf('king') === null){
-		console.log(hotels[i].name);
-	} if (hotels[i].roomTypes.indexOf('triple') === null){
+	if (hotels[i].roomTypes.indexOf('king') === -1){
+		console.log(hotels[i].name + 'is missing king rooms');
+	} if (hotels[i].roomTypes.indexOf('triple') === -1){
 		console.log(hotels[i].name);
 	}
 }
 
+
+// 7. Now the Construction Team wants to confirm every hotel has a triple and king room type.
+// Print the names of the hotels that do not fit this criteria
+console.log("-------------\n");
+console.log("7. Hotels Missing Triple and/or King Room Types");
+let roomToCheck = ["king", "triple"]
+
+for (let i = 0; i < hotels.length; i++){
+	for (let j = 0;j<roomToCheck.length; j++ ){
+		let check = roomToCheck[j]
+		if (hotels[i].roomTypes.indexOf(check) === -1){
+			console.log(hotels[i].name + 'is missing '+check+' rooms');
+		}
+	}
+	 
+}
